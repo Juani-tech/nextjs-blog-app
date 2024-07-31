@@ -1,62 +1,72 @@
-export const blogs = [
+export let blogs = [
   {
     id: "1",
     title: "A blog",
     url: "someurl.com",
     likes: 10,
+    description: "An introductory blog about various topics.",
   },
   {
     id: "2",
     title: "The JavaScript Journey",
     url: "javascriptjourney.com",
     likes: 25,
+    description: "A comprehensive guide through the world of JavaScript.",
   },
   {
     id: "3",
     title: "Mastering React",
     url: "masteringreact.com",
     likes: 40,
+    description: "Tips and tricks for becoming a React expert.",
   },
   {
     id: "4",
     title: "NodeJS Best Practices",
     url: "nodejsbestpractices.com",
     likes: 32,
+    description: "Learn the best practices for NodeJS development.",
   },
   {
     id: "5",
     title: "Understanding TypeScript",
     url: "understandingtypescript.com",
     likes: 18,
+    description: "A deep dive into TypeScript and its features.",
   },
   {
     id: "6",
     title: "GraphQL Deep Dive",
     url: "graphql-deepdive.com",
     likes: 22,
+    description: "Exploring the nuances and capabilities of GraphQL.",
   },
   {
     id: "7",
     title: "Full-Stack Development",
     url: "fullstackdevblog.com",
     likes: 50,
+    description: "Insights and tutorials on full-stack web development.",
   },
   {
     id: "8",
     title: "Web Performance Optimization",
     url: "webperfoptimization.com",
     likes: 27,
+    description: "Techniques for optimizing web performance.",
   },
   {
     id: "9",
     title: "Frontend Frameworks",
     url: "frontendframeworks.com",
     likes: 35,
+    description: "Comparisons and tutorials on various frontend frameworks.",
   },
   {
     id: "10",
     title: "Backend Architecture",
     url: "backendarchitecture.com",
     likes: 30,
+    description: "Best practices and design patterns for backend architecture.",
   },
 ];

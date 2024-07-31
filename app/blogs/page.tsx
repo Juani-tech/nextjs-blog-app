@@ -1,8 +1,12 @@
+"use server";
 import { blogs } from "../lib/placeholder-data";
 import { LikeButton } from "../ui/buttons";
+import { fetchBlogs } from "../lib/data";
+import { auth } from "@/auth";
 
-export default function Blogs() {
-  const blogsData = blogs;
+export default async function Blogs() {
+  const blogsData = await fetchBlogs();
+
   return (
     <div className="flex flex-col">
       {blogsData.map((blog) => (

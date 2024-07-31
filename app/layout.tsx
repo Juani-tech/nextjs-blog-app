@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Blog App made by Juani",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="bg-black flex min-h-screen flex-col ">
+        <div className="bg-black flex min-h-screen flex-col text-gray-300">
           <NavBar />
           {children}
         </div>
