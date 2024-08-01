@@ -1,4 +1,3 @@
-import { Blog } from "@prisma/client";
 import { DeleteButton, LikeButton } from "./buttons";
 import { auth } from "@/auth";
 import { fetchBlogs } from "../lib/data";

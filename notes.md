@@ -43,8 +43,6 @@ npx prisma migrate dev --name init
 npx prisma migrate reset
 ```
 
-
-
 ## When cloning
 
 ```
@@ -53,3 +51,14 @@ DATABASE_URL="file:./dev.db"
 
 - Run all migrations:
   - npx prisma migrate dev --name init
+
+## Shadcn
+
+```
+pnpm dlx shadcn-ui@latest init
+
+```
+
+Which style would you like to use? › Default
+Which color would you like to use as base color? › Slate
+Do you want to use CSS variables for colors? › no / yes
