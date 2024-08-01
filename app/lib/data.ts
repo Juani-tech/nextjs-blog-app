@@ -4,6 +4,8 @@ import bcrypt from "bcrypt";
 const prisma = new PrismaClient();
 
 export async function fetchBlogs() {
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
   const blogs = await prisma.blog.findMany();
   return blogs;
 }

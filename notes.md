@@ -26,11 +26,14 @@ npx prisma migrate dev --name init
 ## A implementar
 
 - Basic UI [x]
-- Register [-]
-- Login (nextAuth) [-]
-- Create blogs [-]
-- Remove Blogs (if owner) [-]
-- Like blogs [-]
+- Register [x]
+- Login (nextAuth) [x]
+- Create blogs [x]
+- Remove Blogs (if owner) [x]
+- Like blogs [x]
+- Suspenses [-]
+- Responsive [-]
+- Pagination [-]
 - Improve visually [-]
 - Testing [-]
 
