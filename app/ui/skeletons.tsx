@@ -3,10 +3,8 @@ const shimmer =
 
 export function BlogSkeleton() {
   return (
-    <div
-      className={`${shimmer} relative overflow-hidden bg-gray-100 p-2 shadow-sm`}
-    >
-      <div className="flex flex-col"></div>
-    </div>
+      <div className="flex justify-center align-center">
+        <h1 className="text-2xl">Loading blogs...</h1>
+      </div>
   );
 }

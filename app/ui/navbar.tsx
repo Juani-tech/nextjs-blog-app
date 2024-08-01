@@ -10,19 +10,19 @@ export default async function NavBar() {
     <div className=" border-b-2 border-gray-700 flex justify-between gap-14 font-bold text-xl py-4">
       <div className="flex">
         <div className="py-1 px-5 ">
-          <Link className="text-slate-300" href="/">
+          <Link className="text-slate-400 hover:text-slate-300" href="/">
             Home
           </Link>
         </div>
 
         <div className="py-1 px-5 ">
-          <Link className="text-slate-300" href="/blogs">
+          <Link className="text-slate-400 hover:text-slate-300" href="/blogs">
             Blogs
           </Link>
         </div>
 
         <div className="py-1 px-5">
-          <Link className="text-slate-300" href="/blogs/create">
+          <Link className="text-slate-400 hover:text-slate-300" href="/blogs/create">
             Create Blog
           </Link>
         </div>
@@ -31,10 +31,10 @@ export default async function NavBar() {
         <div className="py-1 pr-5">
           {!user && (
             <div className="flex gap-14">
-              <Link className="text-slate-300" href="/user/create">
+              <Link className="text-slate-400 hover:text-slate-300" href="/user/create">
                 Sign up
               </Link>
-              <Link className="text-slate-300" href="/login">
+              <Link className="text-slate-400 hover:text-slate-300" href="/login">
                 Login
               </Link>
             </div>
@@ -48,7 +48,7 @@ export default async function NavBar() {
                 redirect("/");
               }}
             >
-              <button className="text-slate-300" type="submit">
+              <button className="text-slate-400 hover:text-slate-300" type="submit">
                 Log Out
               </button>
             </form>

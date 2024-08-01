@@ -31,7 +31,7 @@ npx prisma migrate dev --name init
 - Create blogs [x]
 - Remove Blogs (if owner) [x]
 - Like blogs [x]
-- Suspenses [-]
+- Suspenses [x]
 - Responsive [-]
 - Pagination [-]
 - Improve visually [-]
@@ -42,3 +42,14 @@ npx prisma migrate dev --name init
 ```
 npx prisma migrate reset
 ```
+
+
+
+## When cloning
+
+```
+DATABASE_URL="file:./dev.db"
+```
+
+- Run all migrations:
+  - npx prisma migrate dev --name init
