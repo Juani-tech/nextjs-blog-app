@@ -13,16 +13,22 @@ const prisma = new PrismaClient();
 
 const BlogFormSchema = z.object({
   id: z.string(),
-  title: z.string({
-    invalid_type_error: "Title is required",
-  }),
-  url: z.string({
-    invalid_type_error: "Url is required",
-  }),
+  title: z
+    .string({
+      invalid_type_error: "Title is required",
+    })
+    .min(2),
+  url: z
+    .string({
+      invalid_type_error: "Url is required",
+    })
+    .min(4),
   likes: z.number(),
-  description: z.string({
-    invalid_type_error: "Description is required",
-  }),
+  description: z
+    .string({
+      invalid_type_error: "Description is required",
+    })
+    .min(10),
 });
 
 const CreateBlog = BlogFormSchema.omit({ id: true, likes: true });
@@ -40,7 +46,7 @@ export async function createBlog(
   prevState: CreateBlogState,
   formData: FormData
 ) {
-  console.log("~ actions createBlog ");
+  console.log("🚀 ~ formData:", formData);
   const validatedFields = CreateBlog.safeParse({
     title: formData.get("title"),
     url: formData.get("url"),
@@ -55,9 +61,8 @@ export async function createBlog(
   }
 
   const session = await auth();
-  console.log("🚀 ~ session:", session);
   const userId = session?.userId;
-  console.log("🚀 ~ userId:", userId);
+  console.log("🚀 auth ~ userId:", userId);
 
   if (!userId) {
     return {
@@ -69,6 +74,7 @@ export async function createBlog(
 
   try {
     const id = Number(userId);
+
     await prisma.blog.create({
       data: {
         title,
@@ -78,6 +84,7 @@ export async function createBlog(
       },
     });
   } catch (error) {
+    console.log("🚀 ~ error):", error);
     return {
       message: "Database error. Failed to create Blog.",
     };
@@ -85,6 +92,39 @@ export async function createBlog(
 
   revalidatePath("/blogs");
   redirect("/blogs");
+}
+
+export async function likeBlog(blogId: number) {
+  try {
+    await prisma.blog.update({
+      where: {
+        id: blogId,
+      },
+      data: {
+        likes: { increment: 1 },
+      },
+    });
+  } catch (error) {
+    return {
+      message: "Error updating blog",
+    };
+  }
+  revalidatePath("/blogs");
+}
+
+export async function deleteBlog(blogId: number) {
+  try {
+    await prisma.blog.delete({
+      where: {
+        id: blogId,
+      },
+    });
+  } catch (error) {
+    return {
+      message: `Error deleting the blog, ${error}`,
+    };
+  }
+  revalidatePath("/blogs");
 }
 
 // User

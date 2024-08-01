@@ -28,17 +28,16 @@ export default async function NavBar() {
         </div>
       </div>
       <div className="flex">
-        <div className="py-1 px-5">
-          <Link className="text-slate-300" href="/user/create">
-            Sign up
-          </Link>
-        </div>
-
         <div className="py-1 pr-5">
-          {user && !user.name && (
-            <Link className="text-slate-300" href="/login">
-              Login
-            </Link>
+          {!user && (
+            <div className="flex gap-14">
+              <Link className="text-slate-300" href="/user/create">
+                Sign up
+              </Link>
+              <Link className="text-slate-300" href="/login">
+                Login
+              </Link>
+            </div>
           )}
           {user && user.name && (
             <form

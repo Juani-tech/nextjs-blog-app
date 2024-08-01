@@ -1,18 +1,26 @@
 "use client";
 
 import { CreateBlogState, createBlog } from "@/app/lib/actions";
+import { format } from "path";
 import { useActionState } from "react";
-import { useSession } from "next-auth/react";
 
 export default function CreateBlog() {
   const initialState: CreateBlogState = { message: null, errors: {} };
-  const { data: session, status } = useSession();
   const [state, formAction] = useActionState(createBlog, initialState);
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    formAction(formData);
+    if (!state.errors) {
+      event.currentTarget.reset();
+    }
+  };
 
   return (
     <div className="bg-gray-950 p-10 rounded-xl mx-20 text-xl">
       <h1 className="text-2xl">New Blog</h1>
-      <form action={formAction} className="flex flex-col gap-8 mt-10">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-8 mt-10">
         <div className="flex flex-col gap-3">
           <label htmlFor="title" className="">
             Title
@@ -22,7 +30,7 @@ export default function CreateBlog() {
             name="title"
             aria-describedby="title-error"
             className="bg-inherit p-4  border-2 border-gray-800 rounded-md h-8"
-          />  
+          />
           <div id="title-error" aria-live="polite" aria-atomic="true">
             {state.errors?.title &&
               state.errors.title.map((error: string) => (

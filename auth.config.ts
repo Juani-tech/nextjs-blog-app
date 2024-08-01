@@ -12,9 +12,10 @@ export const authConfig = {
       if (isOnBlogs) {
         if (isLoggedIn) return true;
         return false; // Redirect unauthenticated users to login page
-      } else if (isLoggedIn) {
-        return Response.redirect(new URL("/blogs", nextUrl));
       }
+      //  else if (isLoggedIn) {
+      //   return Response.redirect(new URL("/blogs", nextUrl));
+      // }
       return true;
     },
   },

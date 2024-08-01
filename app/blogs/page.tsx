@@ -1,12 +1,14 @@
 "use server";
-import { blogs } from "../lib/placeholder-data";
-import { LikeButton } from "../ui/buttons";
+
+import { DeleteButton, LikeButton } from "../ui/buttons";
 import { fetchBlogs } from "../lib/data";
 import { auth } from "@/auth";
 
 export default async function Blogs() {
+  const session = await auth();
+  const userId = session?.userId;
   const blogsData = await fetchBlogs();
-
+  console.log("userId: ", userId);
   return (
     <div className="flex flex-col">
       {blogsData.map((blog) => (
@@ -18,7 +20,10 @@ export default async function Blogs() {
           <em>{blog.url}</em>
           <div className="flex gap-4">
             <p>{blog.likes} likes</p>
-            <LikeButton />
+            <LikeButton blogId={blog.id} />
+            {userId && Number(userId) === blog.userId && (
+              <DeleteButton blogId={blog.id} />
+            )}
           </div>
         </div>
       ))}
