@@ -17,7 +17,7 @@ export default async function NavBar() {
 
   return (
     <>
-      <div className="flex justify-start ml-5 mt-2">
+      <div className="md:hidden flex justify-start ml-5 mt-2">
         <DropdownMenu>
           <DropdownMenuTrigger>
             <Bars3Icon className="h-10 w-10" />

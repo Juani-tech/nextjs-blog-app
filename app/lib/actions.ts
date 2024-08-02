@@ -186,6 +186,8 @@ export async function authenticate(
 ) {
   try {
     await signIn("credentials", formData);
+    revalidatePath("/blogs");
+    redirect("/blogs");
   } catch (error) {
     if (error instanceof AuthError) {
       switch (error.type) {

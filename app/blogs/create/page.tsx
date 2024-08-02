@@ -1,7 +1,6 @@
 "use client";
 
 import { CreateBlogState, createBlog } from "@/app/lib/actions";
-import { format } from "path";
 import { useActionState } from "react";
 
 export default function CreateBlog() {
@@ -18,8 +17,8 @@ export default function CreateBlog() {
   };
 
   return (
-    <div className="bg-gray-950 p-10 rounded-xl mx-20 text-xl">
-      <h1 className="text-2xl">New Blog</h1>
+    <div className="bg-gray-950 flex flex-col justify-center p-6 md:p-10 rounded-xl w-full max-w-2xl text-lg mx-auto h-full max-h-screen overflow-y-auto">
+      <h1 className="text-xl md:text-2xl text-center">New Blog</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-8 mt-10">
         <div className="flex flex-col gap-3">
           <label htmlFor="title" className="">
@@ -29,7 +28,7 @@ export default function CreateBlog() {
             id="title"
             name="title"
             aria-describedby="title-error"
-            className="bg-inherit p-4  border-2 border-gray-800 rounded-md h-8"
+            className="bg-inherit p-4 w-full border-2 border-gray-800 rounded-md h-8"
           />
           <div id="title-error" aria-live="polite" aria-atomic="true">
             {state.errors?.title &&
@@ -49,7 +48,7 @@ export default function CreateBlog() {
             id="url"
             name="url"
             aria-describedby="url-error"
-            className="bg-inherit p-4  border-2 border-gray-800 rounded-md h-8"
+            className="bg-inherit p-4 w-full border-2 border-gray-800 rounded-md h-8"
           />
           <div id="url-error" aria-live="polite" aria-atomic="true">
             {state.errors?.url &&
@@ -69,7 +68,7 @@ export default function CreateBlog() {
             id="description"
             name="description"
             aria-describedby="description-error"
-            className="bg-inherit p-4  border-2 border-gray-800 rounded-md max-h-60 resize-none"
+            className="bg-inherit p-4 border-2 border-gray-800 rounded-md max-h-60 w-full resize-none"
           />
           <div id="description-error" aria-live="polite" aria-atomic="true">
             {state.errors?.description &&
@@ -81,7 +80,7 @@ export default function CreateBlog() {
           </div>
         </div>
 
-        <button className="bg-gray-700 w-56 rounded-md py-2" type="submit">
+        <button className="bg-gray-700 w-full rounded-md py-2" type="submit">
           Create Blog
         </button>
       </form>

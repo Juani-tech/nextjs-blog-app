@@ -11,8 +11,8 @@ export default function Login() {
   );
 
   return (
-    <div className="flex justify-center gap-8 mt-10">
-      <div className="bg-slate-900 p-6 ml-10  rounded-xl">
+    <div className="flex justify-center align-middle gap-8 mt-10">
+      <div className="bg-slate-900 p-6 md:ml-10 rounded-xl">
         <h1 className="text-2xl flex justify-center">Login</h1>
         <form action={formAction} className="flex flex-col gap-8 mt-10 ">
           <div className="flex flex-col gap-3">
@@ -27,14 +27,6 @@ export default function Login() {
               required
               minLength={3}
             />
-            {/* <div id="username-error" aria-live="polite" aria-atomic="true">
-              {state.errors?.username &&
-                state.errors.username.map((error: string) => (
-                  <p className="mt-2 text-lg text-red-500" key={error}>
-                    {error}
-                  </p>
-                ))}
-            </div> */}
           </div>
           <div className="flex flex-col gap-3">
             <label htmlFor="password" className="">
@@ -49,14 +41,6 @@ export default function Login() {
               required
               minLength={6}
             />
-            {/* <div id="password-error" aria-live="polite" aria-atomic="true">
-              {state.errors?.password &&
-                state.errors.password.map((error: string) => (
-                  <p className="mt-2 text-lg text-red-500" key={error}>
-                    {error}
-                  </p>
-                ))}
-            </div> */}
             {errorMessage && (
               <div className="flex gap-2">
                 <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
